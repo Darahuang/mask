@@ -1,0 +1,302 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.wrap{
+    max-width: 1600px;
+    margin:0 auto;
+    border:1px solid rgb(230, 218, 218);
+    background-image:linear-gradient( 135deg, #73C0D8 0%, #73C0D8 25%, #fff 50%,#fff 100%);
+    background-image: linear-gradient(-135deg, #73C0D8 0%, #73C0D8 25%, #fff 50%,#fff 100%);
+   
+}
+.title{
+     writing-mode: vertical-lr;
+     font-size: 54px;
+     font-weight: bold;
+    
+
+}
+.titleCh{
+
+    position: absolute;
+     left: 280px;
+     top:230px;
+     color:#666666;
+}
+.titleCh span{
+        color:#73C0D8;
+}
+.titleEn{
+    position: absolute;
+    color:#666666;
+     left: 210px;
+     top:350px;
+}
+.container{
+    max-width: 1080px;
+    margin:30px auto;
+    border-radius: 30px;
+    border :10px solid black;
+    overflow: hidden;
+    
+}
+.grid-box{
+    display: grid;
+    grid-template-columns:30% 70%;
+   
+}
+.dataInfo{
+    height: 900px;
+    overflow: scroll;
+}
+.header{
+background-color: #73C0D8;
+padding:10px ;
+
+}
+.date{
+    font-size: 29px;
+    font-size: Segoe UI;
+    float: left;
+    color: #FFFFFF;
+}
+.info{
+     float: right;
+}
+.today{
+     font-size: Segoe UI;
+     font-size: 12;
+     margin: 5px 0;
+     float: right;
+     color: #FFFFFF;
+}
+.clearfix::after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+.IdInfoOdd, .IdInfoEven,.IdInfoAll{
+    display: none;
+     font-size: 8px;
+     clear: both;
+     color: #FFFFFF;
+}
+.IdInfoOdd span,.IdInfoEven span,.IdInfoAll span{
+    color:#ffd900;
+    font-weight: bold;
+    font-size: 16px;
+}
+.search{
+    border-radius: 20px;
+    width:240px;
+    height: 30px;
+    padding:10px 15px;
+    margin-top:10px;
+    margin-left:10px;
+}
+.drogstore{
+    background-color: #FFFFFF;
+    border-bottom: 1px solid gray;
+    padding:7px;
+    font-size: 13px;
+    position: relative;
+}
+.name{
+    font-weight: bold;
+    color:#333333;
+    font-size: 16px;
+    line-height: 2em;
+}
+.address,.phone{
+line-height: 2em;
+}
+.mask{
+   display: inline-block;
+   border-radius: 10px;
+   width:115px;
+   height: 24px;
+   text-align: center;
+   padding-top:8px;
+   margin-right :3px;
+   color:#FFFFFF;
+}
+.adult{
+    background-color: #73C0D8; 
+}
+.child{
+    background-color: #FFA573;
+}
+.number{
+    font-weight: bold;
+    margin-left:10px;
+    margin-right: 3px;
+}
+#map{
+    margin-left: 10px;
+    height: 900px;
+    
+}
+.leaflet-popup-content p{
+    margin: 10px 0;
+    color:black;
+}
+
+.marker-cluster-small {
+		background-color: rgba(181, 226, 140, 0.6);
+		}
+	.marker-cluster-small div {
+		background-color: rgba(110, 204, 57, 0.6);
+		}
+
+	.marker-cluster-medium {
+		background-color: rgba(241, 211, 87, 0.6);
+		}
+	.marker-cluster-medium div {
+		background-color: rgba(240, 194, 12, 0.6);
+		}
+
+	.marker-cluster-large {
+		background-color: rgba(253, 156, 115, 0.6);
+		}
+	.marker-cluster-large div {
+		background-color: rgba(241, 128, 23, 0.6);
+		}
+
+	.marker-cluster {
+		background-clip: padding-box;
+		border-radius: 20px;
+		}
+	.marker-cluster div {
+		width: 30px;
+		height: 30px;
+		margin-left: 5px;
+		margin-top: 5px;
+
+		text-align: center;
+		border-radius: 15px;
+		font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+		}
+	.marker-cluster span {
+		line-height: 30px;
+        }
+    .marker_icon{
+        position: absolute;
+        right: 0;
+        top: 20px;
+        
+    }  
+  
+.googlemap{
+    display: none;
+}   
+.call{
+    display: none;
+} 
+
+
+.top a{
+  display: block;    
+  position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: #73C0D8;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    color: #03030f;
+    font-weight: bold;
+}
+
+@media(max-width: 414px){
+    .wrap{
+    border:none;
+    background:#FFFFFF
+    }
+    .grid-box{
+    display: grid;
+    grid-template-columns:100%;    
+}
+    .title{
+        display: none;
+    }
+    #map{
+        display: none;
+    }
+    .marker_icon{
+      display: none;
+    }
+    .googlemap{
+        display: block;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+        text-decoration: none;
+        color:#00a98f;
+        font-weight: bold;
+    }
+    .call{
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 65px;
+    text-decoration: none;
+    color:#fd5c63;
+    font-weight: bold;
+}
+.top a{
+    right: 0;
+    bottom: 0;
+   
+}
+}
