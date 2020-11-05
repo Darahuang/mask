@@ -61,24 +61,21 @@ table {
      writing-mode: vertical-lr;
      font-size: 54px;
      font-weight: bold;
-    
-
 }
 .titleCh{
-
     position: absolute;
-     left: 280px;
-     top:230px;
-     color:#666666;
+    left: 280px;
+    top:230px;
+    color:#666666;
 }
 .titleCh span{
-        color:#73C0D8;
+    color:#73C0D8;
 }
 .titleEn{
     position: absolute;
     color:#666666;
-     left: 210px;
-     top:350px;
+    left: 210px;
+    top:350px;
 }
 .container{
     max-width: 1080px;
@@ -94,8 +91,8 @@ table {
    
 }
 .dataInfo{
-    height: 900px;
-    overflow: scroll;
+    height: 960px;
+    overflow: auto;
 }
 .header{
 background-color: #73C0D8;
@@ -136,11 +133,11 @@ padding:10px ;
 }
 .search{
     border-radius: 20px;
-    width:240px;
+    width:100%;
     height: 30px;
     padding:10px 15px;
     margin-top:10px;
-    margin-left:10px;
+    outline: none;
 }
 .drogstore{
     background-color: #FFFFFF;
@@ -162,9 +159,8 @@ line-height: 2em;
    display: inline-block;
    border-radius: 10px;
    width:115px;
-   height: 24px;
    text-align: center;
-   padding-top:8px;
+   padding:8px;
    margin-right :3px;
    color:#FFFFFF;
 }
@@ -180,8 +176,7 @@ line-height: 2em;
     margin-right: 3px;
 }
 #map{
-    margin-left: 10px;
-    height: 900px;
+    height: 960px;
     
 }
 .leaflet-popup-content p{
@@ -219,7 +214,6 @@ line-height: 2em;
 		height: 30px;
 		margin-left: 5px;
 		margin-top: 5px;
-
 		text-align: center;
 		border-radius: 15px;
 		font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -229,7 +223,7 @@ line-height: 2em;
         }
     .marker_icon{
         position: absolute;
-        right: 0;
+        right: 10px;
         top: 20px;
         
     }  
@@ -242,12 +236,12 @@ line-height: 2em;
 } 
 
 
-.top a{
-  display: block;    
-  position: fixed;
+.top a{  
+    display: none;
+    position: fixed;
     right: 0;
     bottom: 0;
-    background-color: #73C0D8;
+    background-color: #d8d173;
     height: 50px;
     width: 50px;
     border-radius: 50px;
@@ -257,7 +251,14 @@ line-height: 2em;
     color: #03030f;
     font-weight: bold;
 }
-
+.top a:hover{
+    background-color: #d87f73;
+}
+@media(max-width:1130px){
+    .title{
+        display: none;
+    }
+}
 @media(max-width: 414px){
     .wrap{
     border:none;
@@ -268,22 +269,22 @@ line-height: 2em;
     grid-template-columns:100%;    
 }
     .title{
-        display: none;
+    display: none;
     }
     #map{
-        display: none;
+    display: none;
     }
     .marker_icon{
-      display: none;
+    display: none;
     }
     .googlemap{
-        display: block;
-        position: absolute;
-        right: 10px;
-        top: 20px;
-        text-decoration: none;
-        color:#00a98f;
-        font-weight: bold;
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    text-decoration: none;
+    color:#00a98f;
+    font-weight: bold;
     }
     .call{
     display: block;
@@ -294,9 +295,9 @@ line-height: 2em;
     color:#fd5c63;
     font-weight: bold;
 }
-.top a{
+/* .top a{
     right: 0;
     bottom: 0;
    
-}
+} */
 }

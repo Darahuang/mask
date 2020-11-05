@@ -10,6 +10,7 @@ map = L.map('map', {
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
+
 // 設定zoom的位置
 L.control.zoom({
   position: 'topright',
@@ -44,10 +45,8 @@ const goldIcon = new L.Icon({
 // 新增圖層,並把marker作群組化,記得要引入markercluster CSS及JS資料
 const markers = new L.MarkerClusterGroup().addTo(map);
 // 轉換星期寫法
-const chineseDay = function () {
-  const date = new Date();
-  const getDay = date.getDay();
-  switch (getDay) {
+const chineseDay = (day) => {
+  switch (day) {
     case 0:
       return '日';
     case 1:
@@ -69,7 +68,7 @@ function renderDate() {
   const date = new Date();
   const day = new Date().getDay();
   // 判斷月份+0
-  const addZero = function (month, digit) {
+  const addZero = (month, digit) => {
     let monthString = String(month); // 轉成字串
     if (monthString.length < digit) {
       monthString = `0${monthString}`;
@@ -99,7 +98,7 @@ function getData() {
   const xhr = new XMLHttpRequest();
   xhr.open('get', 'https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json');
   xhr.send(null);
-  xhr.onload = function () {
+  xhr.onload = () => {
     data = JSON.parse(xhr.responseText);
     const ary = data.features;
     for (let i = 0; ary.length > i; i += 1) {
@@ -116,12 +115,14 @@ function getData() {
 }
 // 取得使用者位置
 function getUserPosition() {
-  if (navigator.geolocation) {
-    const showPosition = function (position) {
+  if (navigator.geolocation) { // 檢查瀏覽器是否支援 Geolocation API
+    // 成功取得位置的回呼函式
+    const showPosition = (position) => {
       L.marker([position.coords.latitude, position.coords.longitude], { icon: goldIcon }).addTo(map).bindPopup('目前的位置').openPopup();
       map.setView([position.coords.latitude, position.coords.longitude], 16); // setView設定地圖圖面的範圍
     };
-    const showError = function () {
+    // 未能取得位置的回呼函式
+    const showError = () => {
       alert('抱歉，現在無法取的您的地理位置。');
     };
     navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -137,11 +138,10 @@ function init() {
 }
 init();
 
-
 // 顯示藥局資訊及自定義data-屬性
 function renderList() {
   const ary = data.features;
-  const value = document.querySelector('.search').value;
+  const { value } = document.querySelector('.search');
   let str = ' ';
   for (let i = 0; i < ary.length; i++) {
     if (value === ary[i].properties.county || value === ary[i].properties.town || value === ary[i].properties.name) {
@@ -171,13 +171,12 @@ function renderList() {
   document.querySelector('.list').innerHTML = str;
 }
 
-// DOM點&搜尋事件
+// DOM點&搜尋事件,使用_.debounce()延遲執行搜尋事件
 const search = document.querySelector('.search');
 const debounce = _.debounce(renderList, 2000);
 search.addEventListener('input', () => {
   debounce();
 }, false);
-
 
 // 按下標誌跳到指定位置
 const list = document.querySelector('.list');
@@ -198,3 +197,23 @@ function updateMap(e) {
 }
 
 list.addEventListener('click', updateMap, false);
+
+const toTop = document.querySelector('.top a');
+// 點擊按鈕，返回頂部
+function topFunction(e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  });
+}
+toTop.addEventListener('click', topFunction, false);
+
+// 當網頁向下滑動 20px 出現"返回頂部" 按鈕
+window.onscroll = function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.querySelector('.top a').style.display = 'block';
+  } else {
+    document.querySelector('.top a').style.display = 'none';
+  }
+};
